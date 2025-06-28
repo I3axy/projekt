@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tGK+WpU9t0k=",
+  "dgSpecHash": "/S0WPKSC82c=",
   "success": true,
-  "projectFilePath": "D:\\esetleg\\projekt\\projekt\\projekt.csproj",
+  "projectFilePath": "D:\\projekt\\projekt\\projekt.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Balázs\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Balázs\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

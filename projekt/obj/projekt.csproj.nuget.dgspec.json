@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\esetleg\\projekt\\projekt\\projekt.csproj": {}
+    "D:\\projekt\\projekt\\projekt.csproj": {}
   },
   "projects": {
-    "D:\\esetleg\\projekt\\projekt\\projekt.csproj": {
+    "D:\\projekt\\projekt\\projekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\esetleg\\projekt\\projekt\\projekt.csproj",
+        "projectUniqueName": "D:\\projekt\\projekt\\projekt.csproj",
         "projectName": "projekt",
-        "projectPath": "D:\\esetleg\\projekt\\projekt\\projekt.csproj",
+        "projectPath": "D:\\projekt\\projekt\\projekt.csproj",
         "packagesPath": "C:\\Users\\Balázs\\.nuget\\packages\\",
-        "outputPath": "D:\\esetleg\\projekt\\projekt\\obj\\",
+        "outputPath": "D:\\projekt\\projekt\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
