@@ -1,0 +1,49 @@
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.EntityFrameworkCore;
+using projekt.Data;
+using projekt.Models;
+
+namespace projekt.Services;
+
+public interface IAuthenticationService
+{
+    Task<User?> AuthenticateAsync(string email, string password);
+    string HashPassword(string password);
+    bool VerifyPassword(string password, string hash);
+}
+
+public class AuthenticationService : IAuthenticationService
+{
+    private readonly MoviesDbContext _context;
+
+    public AuthenticationService(MoviesDbContext context)
+    {
+        _context = context;
+    }
+
+    public async Task<User?> AuthenticateAsync(string email, string password)
+    {
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        
+        if (user == null || !VerifyPassword(password, user.PasswordHash))
+        {
+            return null;
+        }
+
+        return user;
+    }
+
+    public string HashPassword(string password)
+    {
+        using var sha256 = SHA256.Create();
+        var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+        return Convert.ToHexString(hashedBytes);
+    }
+
+    public bool VerifyPassword(string password, string hash)
+    {
+        var hashedPassword = HashPassword(password);
+        return hashedPassword == hash;
+    }
+}

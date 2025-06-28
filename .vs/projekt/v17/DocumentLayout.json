@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\esetleg\\projekt\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|d:\\esetleg\\projekt\\projekt\\services\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|solutionrelative:projekt\\services\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|d:\\esetleg\\projekt\\projekt\\projekt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|solutionrelative:projekt\\projekt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|d:\\esetleg\\projekt\\projekt\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|solutionrelative:projekt\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|d:\\esetleg\\projekt\\projekt\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|solutionrelative:projekt\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthenticationService.cs",
+              "DocumentMoniker": "D:\\esetleg\\projekt\\projekt\\Services\\AuthenticationService.cs",
+              "RelativeDocumentMoniker": "projekt\\Services\\AuthenticationService.cs",
+              "ToolTip": "D:\\esetleg\\projekt\\projekt\\Services\\AuthenticationService.cs",
+              "RelativeToolTip": "projekt\\Services\\AuthenticationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T17:51:58.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "projekt.csproj",
+              "DocumentMoniker": "D:\\esetleg\\projekt\\projekt\\projekt.csproj",
+              "RelativeDocumentMoniker": "projekt\\projekt.csproj",
+              "ToolTip": "D:\\esetleg\\projekt\\projekt\\projekt.csproj",
+              "RelativeToolTip": "projekt\\projekt.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-28T16:58:34.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\esetleg\\projekt\\projekt\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "projekt\\MainWindow.xaml",
+              "ToolTip": "D:\\esetleg\\projekt\\projekt\\MainWindow.xaml",
+              "RelativeToolTip": "projekt\\MainWindow.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-28T16:32:28.418Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\esetleg\\projekt\\projekt\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "projekt\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\esetleg\\projekt\\projekt\\MainWindow.xaml.cs",
+              "RelativeToolTip": "projekt\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T16:32:27.82Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
