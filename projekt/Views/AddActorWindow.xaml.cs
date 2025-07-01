@@ -32,12 +32,17 @@ public partial class AddActorWindow : Window
 
         try
         {
+            // ======== DEBUG: Gender mező ellenőrzése ========
+            var selectedGender = (GenderComboBox.SelectedItem as ComboBoxItem)?.Content?.ToString();
+            System.Diagnostics.Debug.WriteLine($"Kiválasztott gender: {selectedGender}");
+            // ======== DEBUG VÉGE ========
+            
             var actor = new Actor
             {
                 FullName = FullNameTextBox.Text.Trim(),
                 BirthDate = BirthDatePicker.SelectedDate,
                 Nationality = NationalityTextBox.Text.Trim(),
-                Gender = (GenderComboBox.SelectedItem as ComboBoxItem)?.Content?.ToString()
+                Gender = selectedGender
             };
 
             _context.Actors.Add(actor);

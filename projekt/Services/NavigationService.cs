@@ -43,11 +43,26 @@ public class NavigationService : INavigationService
             parameterProperty?.SetValue(newWindow.DataContext, parameter);
         }
 
-        if (_currentWindow != null)
+        // ======== JAVÍTÁS: Bejelentkezési ablak bezárása ========
+        // Ha MainWindow-ra navigálunk, zárjuk be az összes előző ablakot
+        if (newWindow is MainWindow)
+        {
+            // Zárjuk be az összes nyitott ablakot
+            foreach (Window window in System.Windows.Application.Current.Windows)
+            {
+                if (window != newWindow && window.GetType().Name == "LoginWindow")
+                {
+                    window.Close();
+                }
+            }
+            _currentWindow = null;
+        }
+        else if (_currentWindow != null)
         {
             _navigationStack.Push(_currentWindow);
             _currentWindow.Hide();
         }
+        // ======== JAVÍTÁS VÉGE ========
 
         _currentWindow = newWindow;
         newWindow.Show();

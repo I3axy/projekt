@@ -1,22 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\esetleg\\projekt\\",
+  "WorkspaceRootPath": "C:\\szar\\projekt\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|d:\\esetleg\\projekt\\projekt\\services\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|solutionrelative:projekt\\services\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\szar\\projekt\\projekt\\App.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:projekt\\App.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|d:\\esetleg\\projekt\\projekt\\projekt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|solutionrelative:projekt\\projekt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\szar\\projekt\\projekt\\projekt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:projekt\\projekt.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|d:\\esetleg\\projekt\\projekt\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|solutionrelative:projekt\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\szar\\projekt\\projekt\\Services\\AuthenticationService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:projekt\\Services\\AuthenticationService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|d:\\esetleg\\projekt\\projekt\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{68D29737-79DF-497C-8B0A-C3F7E3D28BAE}|projekt\\projekt.csproj|solutionrelative:projekt\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\szar\\projekt\\projekt\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:projekt\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\szar\\projekt\\projekt\\MainWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:projekt\\MainWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,10 +35,23 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\szar\\projekt\\projekt\\App.config",
+              "RelativeDocumentMoniker": "projekt\\App.config",
+              "ToolTip": "C:\\szar\\projekt\\projekt\\App.config",
+              "RelativeToolTip": "projekt\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-07-01T13:14:29.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AuthenticationService.cs",
-              "DocumentMoniker": "D:\\esetleg\\projekt\\projekt\\Services\\AuthenticationService.cs",
+              "DocumentMoniker": "C:\\szar\\projekt\\projekt\\Services\\AuthenticationService.cs",
               "RelativeDocumentMoniker": "projekt\\Services\\AuthenticationService.cs",
-              "ToolTip": "D:\\esetleg\\projekt\\projekt\\Services\\AuthenticationService.cs",
+              "ToolTip": "C:\\szar\\projekt\\projekt\\Services\\AuthenticationService.cs",
               "RelativeToolTip": "projekt\\Services\\AuthenticationService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -45,9 +62,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "projekt.csproj",
-              "DocumentMoniker": "D:\\esetleg\\projekt\\projekt\\projekt.csproj",
+              "DocumentMoniker": "C:\\szar\\projekt\\projekt\\projekt.csproj",
               "RelativeDocumentMoniker": "projekt\\projekt.csproj",
-              "ToolTip": "D:\\esetleg\\projekt\\projekt\\projekt.csproj",
+              "ToolTip": "C:\\szar\\projekt\\projekt\\projekt.csproj",
               "RelativeToolTip": "projekt\\projekt.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -56,11 +73,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\esetleg\\projekt\\projekt\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\szar\\projekt\\projekt\\MainWindow.xaml",
               "RelativeDocumentMoniker": "projekt\\MainWindow.xaml",
-              "ToolTip": "D:\\esetleg\\projekt\\projekt\\MainWindow.xaml",
+              "ToolTip": "C:\\szar\\projekt\\projekt\\MainWindow.xaml",
               "RelativeToolTip": "projekt\\MainWindow.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
@@ -68,11 +85,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\esetleg\\projekt\\projekt\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\szar\\projekt\\projekt\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "projekt\\MainWindow.xaml.cs",
-              "ToolTip": "D:\\esetleg\\projekt\\projekt\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\szar\\projekt\\projekt\\MainWindow.xaml.cs",
               "RelativeToolTip": "projekt\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

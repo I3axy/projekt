@@ -30,6 +30,14 @@
             <Button Content="Add Actor" Command="{Binding AddCommand}"
                     Background="#38a169" Foreground="White" 
                     Padding="10,5" BorderThickness="0" Margin="0,0,10,0"/>
+            
+            <!-- ======== HOZZÁADVA: Save Changes gomb ======== -->
+            <Button Content="💾 Save Changes" Command="{Binding SaveCommand}"
+                    Background="#ffa500" Foreground="White" 
+                    Padding="10,5" BorderThickness="0" Margin="0,0,10,0"
+                    IsEnabled="{Binding HasChanges}"/>
+            <!-- ======== HOZZÁADÁS VÉGE ======== -->
+            
             <Button Content="Delete" Command="{Binding DeleteCommand}"
                     Background="#e53e3e" Foreground="White" 
                     Padding="10,5" BorderThickness="0"/>
@@ -42,12 +50,13 @@
                   CanUserAddRows="False"
                   GridLinesVisibility="Horizontal"
                   AlternatingRowBackground="#f8f9fa"
-                  Margin="10">
+                  Margin="10"
+                  CellEditEnding="DataGrid_CellEditEnding">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}" Width="2*"/>
-                <DataGridTextColumn Header="Birth Date" Binding="{Binding BirthDate, StringFormat=yyyy-MM-dd}" Width="*"/>
-                <DataGridTextColumn Header="Nationality" Binding="{Binding Nationality}" Width="*"/>
-                <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="*"/>
+                <DataGridTextColumn Header="Full Name" Binding="{Binding FullName, UpdateSourceTrigger=LostFocus}" Width="2*" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Birth Date" Binding="{Binding BirthDate, StringFormat=yyyy-MM-dd, UpdateSourceTrigger=LostFocus}" Width="*" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Nationality" Binding="{Binding Nationality, UpdateSourceTrigger=LostFocus}" Width="*" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Gender" Binding="{Binding Gender, UpdateSourceTrigger=LostFocus}" Width="*" IsReadOnly="False"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

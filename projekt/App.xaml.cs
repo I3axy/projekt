@@ -75,5 +75,15 @@ namespace projekt
             }
             base.OnExit(e);
         }
+
+        // ======== HOZZÁADVA: GetDbContext metódus ========
+        public MoviesDbContext GetDbContext()
+        {
+            if (_host?.Services == null)
+                throw new InvalidOperationException("Services not initialized");
+                
+            return _host.Services.GetRequiredService<MoviesDbContext>();
+        }
+        // ======== HOZZÁADÁS VÉGE ========
     }
 }

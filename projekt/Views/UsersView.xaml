@@ -30,6 +30,14 @@
             <Button Content="Add User" Command="{Binding AddCommand}"
                     Background="#38a169" Foreground="White" 
                     Padding="10,5" BorderThickness="0" Margin="0,0,10,0"/>
+            
+            <!-- ======== HOZZÁADVA: Save Changes gomb ======== -->
+            <Button Content="💾 Save Changes" Command="{Binding SaveCommand}"
+                    Background="#ffa500" Foreground="White" 
+                    Padding="10,5" BorderThickness="0" Margin="0,0,10,0"
+                    IsEnabled="{Binding HasChanges}"/>
+            <!-- ======== HOZZÁADÁS VÉGE ======== -->
+            
             <Button Content="Delete" Command="{Binding DeleteCommand}"
                     Background="#e53e3e" Foreground="White" 
                     Padding="10,5" BorderThickness="0"/>
@@ -42,11 +50,13 @@
                   CanUserAddRows="False"
                   GridLinesVisibility="Horizontal"
                   AlternatingRowBackground="#f8f9fa"
-                  Margin="10">
+                  Margin="10"
+                  CellEditEnding="DataGrid_CellEditEnding"
+                  BeginningEdit="DataGrid_BeginningEdit">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
-                <DataGridTextColumn Header="Phone" Binding="{Binding Tel}" Width="*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email, UpdateSourceTrigger=LostFocus}" Width="*" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name, UpdateSourceTrigger=LostFocus}" Width="*" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding Tel, UpdateSourceTrigger=LostFocus}" Width="*" IsReadOnly="False"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

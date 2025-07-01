@@ -28,9 +28,40 @@
                          Padding="12" Height="45" FontSize="16" Margin="0,0,0,20"/>
                 
                 <TextBlock Text="Password:" FontWeight="SemiBold" Margin="0,0,0,8" FontSize="14"/>
-                <PasswordBox x:Name="PasswordBox" 
-                            Padding="12" Height="45" FontSize="16"
-                            PasswordChanged="PasswordBox_PasswordChanged" Margin="0,0,0,15"/>
+                <Grid Margin="0,0,0,15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <PasswordBox x:Name="PasswordBox" 
+                                Grid.Column="0"
+                                Padding="12,12,40,12" Height="45" FontSize="16"
+                                PasswordChanged="PasswordBox_PasswordChanged"
+                                Visibility="{Binding IsPasswordVisible, Converter={StaticResource InverseBooleanToVisibilityConverter}}"/>
+                    
+                    <TextBox x:Name="PasswordTextBox"
+                            Grid.Column="0"
+                            Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"
+                            Padding="12,12,40,12" Height="45" FontSize="16"
+                            Visibility="{Binding IsPasswordVisible, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    
+                    <Button x:Name="TogglePasswordButton"
+                           Grid.Column="0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,0"
+                           Width="30" Height="30"
+                           Background="Transparent"
+                           BorderThickness="0"
+                           Click="TogglePasswordVisibility_Click"
+                           Cursor="Hand">
+                        <TextBlock Text="{Binding IsPasswordVisible, Converter={StaticResource PasswordVisibilityIconConverter}}" 
+                                  FontFamily="Segoe MDL2 Assets" 
+                                  FontSize="16" 
+                                  Foreground="#666"/>
+                    </Button>
+                </Grid>
                 
                 <TextBlock Text="{Binding ErrorMessage}" 
                           Foreground="Red" 

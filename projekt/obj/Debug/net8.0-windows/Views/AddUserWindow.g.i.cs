@@ -76,7 +76,7 @@ namespace projekt.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/projekt;V1.0.0.0;component/views/adduserwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/projekt;component/views/adduserwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\AddUserWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -15,6 +15,7 @@ public class LoginViewModel : BaseViewModel
     private string _password = string.Empty;
     private string _errorMessage = string.Empty;
     private bool _isLoading;
+    private bool _isPasswordVisible = false;
 
     public LoginViewModel(IAuthenticationService authService, INavigationService navigationService)
     {
@@ -47,6 +48,12 @@ public class LoginViewModel : BaseViewModel
         set => SetProperty(ref _isLoading, value);
     }
 
+    public bool IsPasswordVisible
+    {
+        get => _isPasswordVisible;
+        set => SetProperty(ref _isPasswordVisible, value);
+    }
+
     public ICommand LoginCommand { get; }
 
     private bool CanLogin()
@@ -67,21 +74,46 @@ public class LoginViewModel : BaseViewModel
 
         try
         {
+            // ======== DEBUG: BEJELENTKEZÉSI KÍSÉRLET - TÖRLENDŐ ÉLES VERZIÓBAN ========
+            System.Diagnostics.Debug.WriteLine($"DEBUG: Bejelentkezési kísérlet:");
+            System.Diagnostics.Debug.WriteLine($"  Email: {Email}");
+            System.Diagnostics.Debug.WriteLine($"  Jelszó: {Password}");
+            
+            // Hash kiszámítása debug céljára
+            using var sha256 = System.Security.Cryptography.SHA256.Create();
+            var hashedBytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(Password));
+            var hexHash = Convert.ToHexString(hashedBytes);
+            System.Diagnostics.Debug.WriteLine($"  Számított hash: {hexHash}");
+            // ======== DEBUG VÉGE ========
+            
             var user = await _authService.AuthenticateAsync(Email, Password);
             
             if (user != null)
             {
+                // ======== DEBUG: SIKERES BEJELENTKEZÉS - TÖRLENDŐ ÉLES VERZIÓBAN ========
+                System.Diagnostics.Debug.WriteLine($"DEBUG: Sikeres bejelentkezés - Felhasználó: {user.Name} ({user.Email})");
+                // ======== DEBUG VÉGE ========
+                
                 // Store current user in a static property or service
                 CurrentUserService.CurrentUser = user;
                 _navigationService.NavigateTo<MainWindow>();
             }
             else
             {
+                // ======== DEBUG: SIKERTELEN BEJELENTKEZÉS - TÖRLENDŐ ÉLES VERZIÓBAN ========
+                System.Diagnostics.Debug.WriteLine("DEBUG: Sikertelen bejelentkezés - Hibás email vagy jelszó");
+                // ======== DEBUG VÉGE ========
+                
                 ErrorMessage = "Invalid email or password.";
             }
         }
         catch (Exception ex)
         {
+            // ======== DEBUG: HIBA - TÖRLENDŐ ÉLES VERZIÓBAN ========
+            System.Diagnostics.Debug.WriteLine($"DEBUG: Bejelentkezési hiba: {ex.Message}");
+            System.Diagnostics.Debug.WriteLine($"DEBUG: Belső hiba: {ex.InnerException?.Message}");
+            // ======== DEBUG VÉGE ========
+            
             ErrorMessage = $"Login failed: {ex.Message}";
         }
         finally

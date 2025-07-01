@@ -24,9 +24,39 @@ public class AuthenticationService : IAuthenticationService
 
     public async Task<User?> AuthenticateAsync(string email, string password)
     {
+        // ======== DEBUG: HITELESÍTÉSI FOLYAMAT - TÖRLENDŐ ÉLES VERZIÓBAN ========
+        System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Hitelesítés indítása - Email: {email}");
+        // ======== DEBUG VÉGE ========
+        
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         
-        if (user == null || !VerifyPassword(password, user.PasswordHash))
+        // ======== DEBUG: FELHASZNÁLÓ KERESÉS - TÖRLENDŐ ÉLES VERZIÓBAN ========
+        if (user == null)
+        {
+            System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Nincs felhasználó ezzel az emaillel: {email}");
+        }
+        else
+        {
+            System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Felhasználó megtalálva: {user.Name}");
+            System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Tárolt jelszó: {user.PasswordHash}");
+            System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Beírt jelszó: {password}");
+            
+            // ======== IDEIGLENESEN KIKAPCSOLVA: HASH ALAPÚ JELSZÓ ELLENŐRZÉS ========
+            // var inputHash = HashPassword(password);
+            // System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Beírt jelszó hash: {inputHash}");
+            // System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Hash egyezés: {inputHash == user.PasswordHash}");
+            // ======== HASH ELLENŐRZÉS VÉGE ========
+            
+            System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Egyszerű szöveg egyezés: {password == user.PasswordHash}");
+        }
+        // ======== DEBUG VÉGE ========
+        
+        // ======== IDEIGLENESEN MÓDOSÍTVA: EGYSZERŰ SZÖVEG ALAPÚ JELSZÓ ELLENŐRZÉS ========
+        // Eredeti kód (hash alapú):
+        // if (user == null || !VerifyPassword(password, user.PasswordHash))
+        // Ideiglenes kód (egyszerű szöveg):
+        if (user == null || user.PasswordHash != password)
+        // ======== MÓDOSÍTÁS VÉGE ========
         {
             return null;
         }

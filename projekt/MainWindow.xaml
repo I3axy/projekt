@@ -21,6 +21,13 @@
                         Background="#e53e3e" Foreground="White" 
                         Padding="15,5" Margin="0,0,10,0" BorderThickness="0"/>
                 <Separator Width="1" Background="#4a5568" Margin="10,0"/>
+                
+                <!-- ======== HOZZÁADVA: Home gomb ======== -->
+                <Button Content="🏠 Home" Command="{Binding ShowHomeCommand}"
+                        Background="#38a169" Foreground="White" 
+                        Padding="15,5" Margin="0,0,10,0" BorderThickness="0"/>
+                <!-- ======== HOZZÁADÁS VÉGE ======== -->
+                
                 <Button Content="Users" Command="{Binding ShowUsersCommand}"
                         Background="#3182ce" Foreground="White" 
                         Padding="15,5" Margin="0,0,10,0" BorderThickness="0"/>
@@ -43,10 +50,12 @@
         <!-- Bottom Bar -->
         <Border Grid.Row="2" Background="#2d3748" Padding="10">
             <StackPanel Orientation="Horizontal">
+                <!-- ======== JAVÍTVA: Back gomb ======== -->
                 <Button Content="← Back" Command="{Binding BackCommand}"
                         Background="#4a5568" Foreground="White" 
                         Padding="15,5" BorderThickness="0"
                         Visibility="{Binding CurrentView, Converter={StaticResource StringToVisibilityConverter}}"/>
+                <!-- ======== JAVÍTÁS VÉGE ======== -->
                 <TextBlock Text="Film Management System" 
                           Foreground="White" 
                           VerticalAlignment="Center" 

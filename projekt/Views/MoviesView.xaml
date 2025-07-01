@@ -30,8 +30,20 @@
             <Button Content="Add Movie" Command="{Binding AddCommand}"
                     Background="#38a169" Foreground="White" 
                     Padding="10,5" BorderThickness="0" Margin="0,0,10,0"/>
+            
+            <!-- ======== HOZZÁADVA: Save Changes gomb ======== -->
+            <Button Content="💾 Save Changes" Command="{Binding SaveCommand}"
+                    Background="#ffa500" Foreground="White" 
+                    Padding="10,5" BorderThickness="0" Margin="0,0,10,0"
+                    IsEnabled="{Binding HasChanges}"/>
+            <!-- ======== HOZZÁADÁS VÉGE ======== -->
+            
             <Button Content="Delete" Command="{Binding DeleteCommand}"
                     Background="#e53e3e" Foreground="White" 
+                    Padding="10,5" BorderThickness="0" Margin="0,0,10,0"/>
+            
+            <Button Content="📊 Ratings" Command="{Binding RatingsCommand}"
+                    Background="#6366f1" Foreground="White" 
                     Padding="10,5" BorderThickness="0"/>
         </StackPanel>
         
@@ -42,12 +54,13 @@
                   CanUserAddRows="False"
                   GridLinesVisibility="Horizontal"
                   AlternatingRowBackground="#f8f9fa"
-                  Margin="10">
+                  Margin="10"
+                  CellEditEnding="DataGrid_CellEditEnding">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="2*"/>
-                <DataGridTextColumn Header="Release Date" Binding="{Binding ReleaseDate, StringFormat=yyyy-MM-dd}" Width="*"/>
-                <DataGridTextColumn Header="Duration (min)" Binding="{Binding DurationMinutes}" Width="*"/>
-                <DataGridTextColumn Header="Average Rating" Binding="{Binding AverageRating, StringFormat=F1}" Width="*"/>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title, UpdateSourceTrigger=LostFocus}" Width="2*" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Release Date" Binding="{Binding ReleaseDate, StringFormat=yyyy-MM-dd, UpdateSourceTrigger=LostFocus}" Width="*" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Duration (min)" Binding="{Binding DurationMinutes, UpdateSourceTrigger=LostFocus}" Width="*" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Average Rating" Binding="{Binding AverageRating, StringFormat=F1}" Width="*" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -14,6 +14,7 @@ public class UsersViewModel : BaseViewModel
     private ObservableCollection<User> _users = new();
     private User? _selectedUser;
     private string _searchText = string.Empty;
+    private bool _hasChanges = false; // ======== HOZZÁADVA ========
 
     public UsersViewModel(MoviesDbContext context)
     {
@@ -22,6 +23,7 @@ public class UsersViewModel : BaseViewModel
         AddCommand = new RelayCommand(AddUser);
         DeleteCommand = new RelayCommand(DeleteUser, () => SelectedUser != null);
         SearchCommand = new RelayCommand(async () => await SearchAsync());
+        SaveCommand = new RelayCommand(async () => await SaveChangesAsync(), () => HasChanges); // ======== HOZZÁADVA ========
         
         Task.Run(async () => await LoadUsersAsync());
     }
@@ -44,16 +46,30 @@ public class UsersViewModel : BaseViewModel
         set => SetProperty(ref _searchText, value);
     }
 
+    // ======== HOZZÁADVA: HasChanges tulajdonság ========
+    public bool HasChanges
+    {
+        get => _hasChanges;
+        set => SetProperty(ref _hasChanges, value);
+    }
+    // ======== HOZZÁADÁS VÉGE ========
+
     public ICommand AddCommand { get; }
     public ICommand DeleteCommand { get; }
     public ICommand SearchCommand { get; }
+    public ICommand SaveCommand { get; } // ======== HOZZÁADVA ========
 
     private async Task LoadUsersAsync()
     {
         try
         {
+            // ======== JAVÍTÁS: Context frissítése ========
+            _context.ChangeTracker.Clear(); // Tisztítsuk meg a change trackert
+            // ======== JAVÍTÁS VÉGE ========
+            
             var users = await _context.Users.ToListAsync();
             Users = new ObservableCollection<User>(users);
+            HasChanges = false; // Reset changes flag
         }
         catch (Exception)
         {
@@ -94,4 +110,53 @@ public class UsersViewModel : BaseViewModel
             Users.Remove(SelectedUser);
         }
     }
+
+    // ======== JAVÍTÁS: Egyszerűbb és működő SaveChangesAsync metódus ========
+    private async Task SaveChangesAsync()
+    {
+        try
+        {
+            System.Diagnostics.Debug.WriteLine("Mentés kezdése...");
+            
+            // Az aktuális felhasználók adatainak mentése
+            foreach (var user in Users)
+            {
+                // Keresd meg az adatbázisban a megfelelő felhasználót
+                var dbUser = await _context.Users.FindAsync(user.UserID);
+                if (dbUser != null)
+                {
+                    // Frissítsd az értékeket
+                    if (dbUser.Email != user.Email)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Email változás: {dbUser.Email} -> {user.Email}");
+                        dbUser.Email = user.Email;
+                    }
+                    if (dbUser.Name != user.Name)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Név változás: {dbUser.Name} -> {user.Name}");
+                        dbUser.Name = user.Name;
+                    }
+                    if (dbUser.Tel != user.Tel)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Tel változás: {dbUser.Tel} -> {user.Tel}");
+                        dbUser.Tel = user.Tel;
+                    }
+                }
+            }
+            
+            var changes = await _context.SaveChangesAsync();
+            System.Diagnostics.Debug.WriteLine($"Mentve {changes} változás az adatbázisba.");
+            
+            HasChanges = false;
+            
+            // Újratöltjük az adatokat a változások megjelenítéséhez
+            await LoadUsersAsync();
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Hiba a mentés során: {ex.Message}");
+            System.Diagnostics.Debug.WriteLine($"StackTrace: {ex.StackTrace}");
+        }
+    }
+    // ======== JAVÍTÁS VÉGE ========
 }

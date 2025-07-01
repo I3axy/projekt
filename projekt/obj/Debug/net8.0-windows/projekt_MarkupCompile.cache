@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\esetleg\projekt\projekt\obj\Debug\net8.0-windows\
+C:\szar\projekt\projekt\obj\Debug\net8.0-windows\
 projekt
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\esetleg\projekt\projekt\App.xaml
-91680852974
+C:\szar\projekt\projekt\App.xaml
+111426471517
 
-33-1389590591
-260-1554295694
-MainWindow.xaml;Views\ActorsView.xaml;Views\AddActorWindow.xaml;Views\AddMovieWindow.xaml;Views\AddUserWindow.xaml;Views\LoginWindow.xaml;Views\MoviesView.xaml;Views\StatisticsWindow.xaml;Views\UsersView.xaml;
+36-1333813807
+260311206127
+MainWindow.xaml;Views\ActorsView.xaml;Views\AddActorWindow.xaml;Views\AddMovieWindow.xaml;Views\AddRatingWindow.xaml;Views\AddUserWindow.xaml;Views\LoginWindow.xaml;Views\MoviesView.xaml;Views\RatingsWindow.xaml;Views\StatisticsWindow.xaml;Views\UsersView.xaml;
 
 False
 
