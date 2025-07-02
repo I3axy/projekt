@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP
 C:\szar\projekt\projekt\App.xaml
-91680852974
+111426471517
 
-33-846836056
+36-791059272
 260311206127
-MainWindow.xaml;Views\ActorsView.xaml;Views\AddActorWindow.xaml;Views\AddMovieWindow.xaml;Views\AddUserWindow.xaml;Views\LoginWindow.xaml;Views\MoviesView.xaml;Views\StatisticsWindow.xaml;Views\UsersView.xaml;
+MainWindow.xaml;Views\ActorsView.xaml;Views\AddActorWindow.xaml;Views\AddMovieWindow.xaml;Views\AddRatingWindow.xaml;Views\AddUserWindow.xaml;Views\LoginWindow.xaml;Views\MoviesView.xaml;Views\RatingsWindow.xaml;Views\StatisticsWindow.xaml;Views\UsersView.xaml;
 
 True
 
