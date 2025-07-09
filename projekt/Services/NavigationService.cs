@@ -36,6 +36,17 @@ public class NavigationService : INavigationService
             }
         }
         
+        // ======== HOZZÁADVA: LoginWindow DataContext beállítása ========
+        if (newWindow is projekt.Views.LoginWindow loginWindow)
+        {
+            if (System.Windows.Application.Current is App app && app.Services != null)
+            {
+                var loginViewModel = app.Services.GetService<LoginViewModel>();
+                loginWindow.DataContext = loginViewModel;
+            }
+        }
+        // ======== HOZZÁADÁS VÉGE ========
+        
         if (parameter != null && newWindow.DataContext != null)
         {
             // Try to set parameter if the DataContext has a Parameter property

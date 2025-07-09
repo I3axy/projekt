@@ -16,10 +16,8 @@ public class StatisticsViewModel : BaseViewModel
     {
         _context = context;
         
-        Top5MostViewedCommand = new RelayCommand(async () => await GetTop5MostViewedAsync());
         DurationStatsCommand = new RelayCommand(async () => await GetDurationStatsAsync());
         Top5RatedCommand = new RelayCommand(async () => await GetTop5RatedAsync());
-        TopActorCommand = new RelayCommand(async () => await GetTopActorAsync());
         RatingByGenreCommand = new RelayCommand(async () => await GetRatingByGenreAsync());
     }
 
@@ -29,27 +27,9 @@ public class StatisticsViewModel : BaseViewModel
         set => SetProperty(ref _statisticsResults, value);
     }
 
-    public ICommand Top5MostViewedCommand { get; }
     public ICommand DurationStatsCommand { get; }
     public ICommand Top5RatedCommand { get; }
-    public ICommand TopActorCommand { get; }
     public ICommand RatingByGenreCommand { get; }
-
-    private async Task GetTop5MostViewedAsync()
-    {
-        var results = await _context.Movies
-            .Include(m => m.UserRatings)
-            .Select(m => new
-            {
-                Title = m.Title,
-                ViewCount = m.UserRatings.Count()
-            })
-            .OrderByDescending(m => m.ViewCount)
-            .Take(5)
-            .ToListAsync();
-
-        StatisticsResults = new ObservableCollection<dynamic>(results);
-    }
 
     private async Task GetDurationStatsAsync()
     {
@@ -85,22 +65,6 @@ public class StatisticsViewModel : BaseViewModel
             })
             .OrderByDescending(m => m.AverageRating)
             .Take(5)
-            .ToListAsync();
-
-        StatisticsResults = new ObservableCollection<dynamic>(results);
-    }
-
-    private async Task GetTopActorAsync()
-    {
-        var results = await _context.Actors
-            .Include(a => a.MovieActors)
-            .Select(a => new
-            {
-                FullName = a.FullName,
-                MovieCount = a.MovieActors.Count()
-            })
-            .OrderByDescending(a => a.MovieCount)
-            .Take(1)
             .ToListAsync();
 
         StatisticsResults = new ObservableCollection<dynamic>(results);

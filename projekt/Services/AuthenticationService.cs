@@ -38,25 +38,21 @@ public class AuthenticationService : IAuthenticationService
         else
         {
             System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Felhasználó megtalálva: {user.Name}");
-            System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Tárolt jelszó: {user.PasswordHash}");
+            System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Tárolt jelszó hash: {user.PasswordHash}");
             System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Beírt jelszó: {password}");
             
-            // ======== IDEIGLENESEN KIKAPCSOLVA: HASH ALAPÚ JELSZÓ ELLENŐRZÉS ========
-            // var inputHash = HashPassword(password);
-            // System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Beírt jelszó hash: {inputHash}");
-            // System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Hash egyezés: {inputHash == user.PasswordHash}");
+            // ======== HASH ALAPÚ JELSZÓ ELLENŐRZÉS ========
+            var inputHash = HashPassword(password);
+            System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Beírt jelszó hash: {inputHash}");
+            System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Hash egyezés: {inputHash == user.PasswordHash}");
             // ======== HASH ELLENŐRZÉS VÉGE ========
-            
-            System.Diagnostics.Debug.WriteLine($"DEBUG AuthService: Egyszerű szöveg egyezés: {password == user.PasswordHash}");
         }
         // ======== DEBUG VÉGE ========
         
-        // ======== IDEIGLENESEN MÓDOSÍTVA: EGYSZERŰ SZÖVEG ALAPÚ JELSZÓ ELLENŐRZÉS ========
-        // Eredeti kód (hash alapú):
-        // if (user == null || !VerifyPassword(password, user.PasswordHash))
-        // Ideiglenes kód (egyszerű szöveg):
-        if (user == null || user.PasswordHash != password)
-        // ======== MÓDOSÍTÁS VÉGE ========
+        // ======== JAVÍTVA: HASH ALAPÚ JELSZÓ ELLENŐRZÉS ========
+        // A beírt jelszót hash-eljük és azt hasonlítjuk a tárolt hash-hez
+        if (user == null || !VerifyPassword(password, user.PasswordHash))
+        // ======== JAVÍTÁS VÉGE ========
         {
             return null;
         }

@@ -8,13 +8,13 @@ C:\szar\projekt\projekt\obj\Debug\net8.0-windows\
 projekt
 none
 false
-TRACE;RELEASE;NET;NET8_0;NETCOREAPP
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\szar\projekt\projekt\App.xaml
 111426471517
 
-49-1742086126
-520622412254
+36-1333813807
+260311206127
 MainWindow.xaml;Views\ActorsView.xaml;Views\AddActorWindow.xaml;Views\AddMovieWindow.xaml;Views\AddRatingWindow.xaml;Views\AddUserWindow.xaml;Views\LoginWindow.xaml;Views\MoviesView.xaml;Views\RatingsWindow.xaml;Views\StatisticsWindow.xaml;Views\UsersView.xaml;
 
-True
+False
 

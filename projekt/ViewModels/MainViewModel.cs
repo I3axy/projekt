@@ -3,6 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using projekt.Commands;
 using projekt.Services;
 using projekt.Views;
+using projekt.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace projekt.ViewModels;
 
@@ -11,6 +13,30 @@ public class MainViewModel : BaseViewModel
     private readonly INavigationService _navigationService;
     private object? _currentView;
     private object? _previousView; // ======== HOZZÁADVA: Előző nézet tárolása ========
+    
+    // ======== HOZZÁADVA: Statisztikai property-k ========
+    private int _usersCount;
+    private int _moviesCount;
+    private int _actorsCount;
+    
+    public int UsersCount
+    {
+        get => _usersCount;
+        set => SetProperty(ref _usersCount, value);
+    }
+    
+    public int MoviesCount
+    {
+        get => _moviesCount;
+        set => SetProperty(ref _moviesCount, value);
+    }
+    
+    public int ActorsCount
+    {
+        get => _actorsCount;
+        set => SetProperty(ref _actorsCount, value);
+    }
+    // ======== HOZZÁADÁS VÉGE ========
 
     public MainViewModel(INavigationService navigationService)
     {
@@ -25,7 +51,8 @@ public class MainViewModel : BaseViewModel
         ShowStatisticsCommand = new RelayCommand(ShowStatistics);
         BackCommand = new RelayCommand(GoBack, CanGoBack);
         
-        // ======== HOZZÁADVA: Kezdőlap megjelenítése induláskor ========
+        // ======== HOZZÁADVA: Statisztikák betöltése és kezdőlap ========
+        Task.Run(async () => await LoadStatisticsAsync());
         ShowHome();
         // ======== HOZZÁADÁS VÉGE ========
     }
@@ -65,7 +92,7 @@ public class MainViewModel : BaseViewModel
         // Egyszerű kezdőlap létrehozása TextBlock-kal
         var homeView = new System.Windows.Controls.TextBlock
         {
-            Text = "Film Menedzsment Adminisztrációs Felület",
+            Text = "Film Database Management App",
             FontSize = 32,
             FontWeight = System.Windows.FontWeights.Bold,
             HorizontalAlignment = System.Windows.HorizontalAlignment.Center,
@@ -88,7 +115,7 @@ public class MainViewModel : BaseViewModel
         {
             var welcomeText = new System.Windows.Controls.TextBlock
             {
-                Text = $"Üdvözöljük, {CurrentUserService.CurrentUser.Name}!",
+                Text = $"Welcome, {CurrentUserService.CurrentUser.Name}!",
                 FontSize = 18,
                 HorizontalAlignment = System.Windows.HorizontalAlignment.Center,
                 Margin = new System.Windows.Thickness(0, 20, 0, 0),
@@ -110,6 +137,10 @@ public class MainViewModel : BaseViewModel
             usersView.DataContext = viewModel;
         }
         CurrentView = usersView;
+        
+        // ======== HOZZÁADVA: Statisztikák frissítése ========
+        Task.Run(async () => await RefreshStatisticsAsync());
+        // ======== HOZZÁADÁS VÉGE ========
     }
 
     private void ShowMovies()
@@ -121,6 +152,10 @@ public class MainViewModel : BaseViewModel
             moviesView.DataContext = viewModel;
         }
         CurrentView = moviesView;
+        
+        // ======== HOZZÁADVA: Statisztikák frissítése ========
+        Task.Run(async () => await RefreshStatisticsAsync());
+        // ======== HOZZÁADÁS VÉGE ========
     }
 
     private void ShowActors()
@@ -132,6 +167,10 @@ public class MainViewModel : BaseViewModel
             actorsView.DataContext = viewModel;
         }
         CurrentView = actorsView;
+        
+        // ======== HOZZÁADVA: Statisztikák frissítése ========
+        Task.Run(async () => await RefreshStatisticsAsync());
+        // ======== HOZZÁADÁS VÉGE ========
     }
 
     private void ShowStatistics()
@@ -165,4 +204,26 @@ public class MainViewModel : BaseViewModel
     {
         return CurrentView != null;
     }
+    
+    // ======== HOZZÁADVA: Statisztikák betöltése ========
+    private async Task LoadStatisticsAsync()
+    {
+        try
+        {
+            using var context = new MoviesDbContext();
+            UsersCount = await context.Users.CountAsync();
+            MoviesCount = await context.Movies.CountAsync();
+            ActorsCount = await context.Actors.CountAsync();
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Hiba a statisztikák betöltése során: {ex.Message}");
+        }
+    }
+    
+    public async Task RefreshStatisticsAsync()
+    {
+        await LoadStatisticsAsync();
+    }
+    // ======== HOZZÁADÁS VÉGE ========
 }

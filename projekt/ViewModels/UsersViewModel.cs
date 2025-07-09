@@ -108,6 +108,12 @@ public class UsersViewModel : BaseViewModel
             _context.Users.Remove(SelectedUser);
             await _context.SaveChangesAsync();
             Users.Remove(SelectedUser);
+            
+            // Refresh statistics in MainViewModel
+            if (System.Windows.Application.Current.MainWindow?.DataContext is MainViewModel mainViewModel)
+            {
+                await mainViewModel.RefreshStatisticsAsync();
+            }
         }
     }
 
@@ -141,6 +147,13 @@ public class UsersViewModel : BaseViewModel
                         System.Diagnostics.Debug.WriteLine($"Tel változás: {dbUser.Tel} -> {user.Tel}");
                         dbUser.Tel = user.Tel;
                     }
+                    // ======== HOZZÁADVA: PasswordHash mentése ========
+                    if (dbUser.PasswordHash != user.PasswordHash)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Jelszó változás a felhasználónál: {user.Email}");
+                        dbUser.PasswordHash = user.PasswordHash;
+                    }
+                    // ======== HOZZÁADÁS VÉGE ========
                 }
             }
             

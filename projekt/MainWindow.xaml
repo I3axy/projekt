@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:projekt"
         mc:Ignorable="d"
-        Title="Film Management System" Height="600" Width="1000"
+        Title="Film Database Management App" Height="600" Width="1000"
         WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid Background="#fafbfc">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -56,10 +56,51 @@
                         Padding="15,5" BorderThickness="0"
                         Visibility="{Binding CurrentView, Converter={StaticResource StringToVisibilityConverter}}"/>
                 <!-- ======== JAVÍTÁS VÉGE ======== -->
-                <TextBlock Text="Film Management System" 
+                
+                <TextBlock Text="Film Database Management App" 
                           Foreground="White" 
                           VerticalAlignment="Center" 
                           Margin="20,0,0,0"/>
+                
+                <!-- ======== HOZZÁADVA: Statisztikai információk ======== -->
+                <Grid HorizontalAlignment="Right" Width="500" Margin="20,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <!-- Users Count -->
+                    <Border Grid.Column="0" Background="#e53e3e" CornerRadius="8" Padding="15,8">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Text="👥" Foreground="White" FontSize="14" Margin="0,0,8,0"/>
+                            <TextBlock Text="{Binding UsersCount, StringFormat='{}{0} Users'}" 
+                                      Foreground="White" FontWeight="SemiBold" FontSize="12"/>
+                        </StackPanel>
+                    </Border>
+                    
+                    <!-- Movies Count -->
+                    <Border Grid.Column="2" Background="White" CornerRadius="8" Padding="15,8">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Text="🎬" Foreground="#2d3748" FontSize="14" Margin="0,0,8,0"/>
+                            <TextBlock Text="{Binding MoviesCount, StringFormat='{}{0} Movies'}" 
+                                      Foreground="#2d3748" FontWeight="SemiBold" FontSize="12"/>
+                        </StackPanel>
+                    </Border>
+                    
+                    <!-- Actors Count -->
+                    <Border Grid.Column="4" Background="#38a169" CornerRadius="8" Padding="15,8">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Text="🎭" Foreground="White" FontSize="14" Margin="0,0,8,0"/>
+                            <TextBlock Text="{Binding ActorsCount, StringFormat='{}{0} Actors'}" 
+                                      Foreground="White" FontWeight="SemiBold" FontSize="12"/>
+                        </StackPanel>
+                    </Border>
+                    
+                </Grid>
+                <!-- ======== HOZZÁADÁS VÉGE ======== -->
             </StackPanel>
         </Border>
     </Grid>

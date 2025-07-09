@@ -53,10 +53,10 @@ namespace projekt
             // Initialize and show login window after base startup
             try
             {
-                var loginWindow = new LoginWindow();
-                var loginViewModel = _host.Services.GetRequiredService<LoginViewModel>();
-                loginWindow.DataContext = loginViewModel;
-                loginWindow.Show();
+                // ======== JAVÍTVA: NavigationService használata konzisztencia érdekében ========
+                var navigationService = _host.Services.GetRequiredService<INavigationService>();
+                navigationService.NavigateTo<LoginWindow>();
+                // ======== JAVÍTÁS VÉGE ========
             }
             catch (Exception ex)
             {

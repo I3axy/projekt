@@ -106,6 +106,12 @@ public class ActorsViewModel : BaseViewModel
             _context.Actors.Remove(SelectedActor);
             await _context.SaveChangesAsync();
             Actors.Remove(SelectedActor);
+            
+            // Refresh statistics in MainViewModel
+            if (System.Windows.Application.Current.MainWindow?.DataContext is MainViewModel mainViewModel)
+            {
+                await mainViewModel.RefreshStatisticsAsync();
+            }
         }
     }
 

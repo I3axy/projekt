@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using projekt.Data;
 using projekt.Models;
+using projekt.ViewModels;
 
 namespace projekt.Views;
 
@@ -47,6 +48,12 @@ public partial class AddActorWindow : Window
 
             _context.Actors.Add(actor);
             await _context.SaveChangesAsync();
+
+            // Refresh statistics in MainViewModel
+            if (System.Windows.Application.Current.MainWindow?.DataContext is MainViewModel mainViewModel)
+            {
+                await mainViewModel.RefreshStatisticsAsync();
+            }
 
             DialogResult = true;
             Close();

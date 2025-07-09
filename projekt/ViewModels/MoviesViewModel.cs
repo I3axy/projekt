@@ -131,6 +131,12 @@ public class MoviesViewModel : BaseViewModel
                 _context.Movies.Remove(movie);
                 await _context.SaveChangesAsync();
                 Movies.Remove(SelectedMovie);
+                
+                // Refresh statistics in MainViewModel
+                if (System.Windows.Application.Current.MainWindow?.DataContext is MainViewModel mainViewModel)
+                {
+                    await mainViewModel.RefreshStatisticsAsync();
+                }
             }
         }
     }

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:projekt.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="#fafbfc">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -56,6 +56,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email, UpdateSourceTrigger=LostFocus}" Width="*" IsReadOnly="False"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name, UpdateSourceTrigger=LostFocus}" Width="*" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Password" Binding="{Binding Password, UpdateSourceTrigger=LostFocus}" Width="*" IsReadOnly="False"/>
                 <DataGridTextColumn Header="Phone" Binding="{Binding Tel, UpdateSourceTrigger=LostFocus}" Width="*" IsReadOnly="False"/>
             </DataGrid.Columns>
         </DataGrid>

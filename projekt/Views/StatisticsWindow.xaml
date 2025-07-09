@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Statistics" Height="500" Width="700"
         WindowStartupLocation="CenterOwner">
-    <Grid Margin="20">
+    <Grid Margin="20" Background="#fafbfc">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -21,16 +21,10 @@
         
         <!-- Statistics Options -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,20">
-            <Button Content="Top 5 Most Viewed" Command="{Binding Top5MostViewedCommand}"
-                    Background="#3182ce" Foreground="White" 
-                    Padding="10,5" BorderThickness="0" Margin="0,0,10,0"/>
             <Button Content="Duration Stats" Command="{Binding DurationStatsCommand}"
                     Background="#3182ce" Foreground="White" 
                     Padding="10,5" BorderThickness="0" Margin="0,0,10,0"/>
             <Button Content="Top 5 Rated" Command="{Binding Top5RatedCommand}"
-                    Background="#3182ce" Foreground="White" 
-                    Padding="10,5" BorderThickness="0" Margin="0,0,10,0"/>
-            <Button Content="Top Actor" Command="{Binding TopActorCommand}"
                     Background="#3182ce" Foreground="White" 
                     Padding="10,5" BorderThickness="0" Margin="0,0,10,0"/>
             <Button Content="Rating by Genre" Command="{Binding RatingByGenreCommand}"

@@ -2,6 +2,7 @@ using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using projekt.Data;
 using projekt.Models;
+using projekt.ViewModels;
 
 namespace projekt.Views;
 
@@ -48,6 +49,12 @@ public partial class AddMovieWindow : Window
 
             _context.Movies.Add(movie);
             await _context.SaveChangesAsync();
+
+            // Refresh statistics in MainViewModel
+            if (System.Windows.Application.Current.MainWindow?.DataContext is ViewModels.MainViewModel mainViewModel)
+            {
+                await mainViewModel.RefreshStatisticsAsync();
+            }
 
             DialogResult = true;
             Close();
