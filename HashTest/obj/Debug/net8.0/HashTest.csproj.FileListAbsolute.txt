@@ -1,0 +1,15 @@
+C:\szar\projekt\HashTest\bin\Debug\net8.0\HashTest.exe
+C:\szar\projekt\HashTest\bin\Debug\net8.0\HashTest.deps.json
+C:\szar\projekt\HashTest\bin\Debug\net8.0\HashTest.runtimeconfig.json
+C:\szar\projekt\HashTest\bin\Debug\net8.0\HashTest.dll
+C:\szar\projekt\HashTest\bin\Debug\net8.0\HashTest.pdb
+C:\szar\projekt\HashTest\obj\Debug\net8.0\HashTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\szar\projekt\HashTest\obj\Debug\net8.0\HashTest.AssemblyInfoInputs.cache
+C:\szar\projekt\HashTest\obj\Debug\net8.0\HashTest.AssemblyInfo.cs
+C:\szar\projekt\HashTest\obj\Debug\net8.0\HashTest.csproj.CoreCompileInputs.cache
+C:\szar\projekt\HashTest\obj\Debug\net8.0\HashTest.sourcelink.json
+C:\szar\projekt\HashTest\obj\Debug\net8.0\HashTest.dll
+C:\szar\projekt\HashTest\obj\Debug\net8.0\refint\HashTest.dll
+C:\szar\projekt\HashTest\obj\Debug\net8.0\HashTest.pdb
+C:\szar\projekt\HashTest\obj\Debug\net8.0\HashTest.genruntimeconfig.cache
+C:\szar\projekt\HashTest\obj\Debug\net8.0\ref\HashTest.dll
